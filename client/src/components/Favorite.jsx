@@ -1,7 +1,12 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
+
+// Import react modules
 import React from 'react';
+import './Styles/Favorite.css'
 
-
+// Class of music used ton interact with back end and App.js file
 class Favorite extends React.Component {
+    // Set initial state as an empty array
     constructor(){
         super()
         this.state = {
@@ -9,7 +14,7 @@ class Favorite extends React.Component {
             favBooks: []
         }
     }
-
+    // mount or fetch data from json files and push info into the empty array
     componentDidMount(){
         fetch('/favoritesMusic')
             .then(res => res.json())
@@ -19,7 +24,7 @@ class Favorite extends React.Component {
             .then(res => res.json())
             .then(books => this.setState({favBooks: books}, () => console.log('fetched...', books)))
     }
-
+// Used to delete items form array
     deleteMusic = (i) => {
         let musicToDelete = {
             deleted: i.id
@@ -33,7 +38,7 @@ class Favorite extends React.Component {
         })
         document.location.reload()
     }
-
+// Used to delete items form array
     deleteBooks = (i) => {
         let booksToDelete = {
             deleted: i.id
@@ -51,20 +56,32 @@ class Favorite extends React.Component {
         return(
             <div>
                 <fieldset>
-                    {this.state.favMusic.map(favM => <article key={favM.trackId}><p>{favM.artist}</p><p>{favM.trackId}</p>
-                        <img src={favM.artwork} alt='artwork'/><br/>
+                    <h1>Music</h1>
+                    {/* Display saved music */}
+                    {this.state.favMusic.map(favM => <article key={favM.artwork}>
+                        <div className="cont">
+                            <h3>{favM.artist}</h3>
+                            <h3>{favM.trackId}</h3>
+                        </div>
+                        <img className="audio" src={favM.artwork} alt='artwork'/><br/>
                         <audio controls><source src={favM.sample}/></audio>
                         <p>{favM.track}</p>
-                        <button onClick={() => {this.deleteMusic(favM)}}>Remove</button>
+                        <button className='delete' onClick={() => {this.deleteMusic(favM)}}>🗑️</button>
 
                     </article>)}
                 </fieldset>
+
                 <fieldset>
-                    {this.state.favBooks.map(favB => <article key={favB.artwork}><p>{favB.artist}</p>
+                    <h1>Books</h1>
+                    {/* Display saved books */}
+                    {this.state.favBooks.map(favB => <article key={favB.artwork}>
+                        <div className="cont">
+                            <h3>{favB.artist}</h3>
+                            <h3>{favB.track}</h3>
+                        </div>
                         <img src={favB.artwork} alt='artwork'/><br/>
                         <p>{favB.description}</p>
-                        <p>{favB.track}</p>
-                        <button onClick={() => {this.deleteBooks(favB)}}>Remove</button>
+                        <button className='delete' onClick={() => {this.deleteBooks(favB)}}>🗑️</button>
 
                     </article>)}
                 </fieldset>

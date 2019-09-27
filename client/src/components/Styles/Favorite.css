@@ -1,0 +1,65 @@
+img {
+    width: 10%;
+    height: 20vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background: #343436;
+    font-family: 'Lato';
+}
+
+body:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+article {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    padding: 50px 5%;
+    box-sizing: border-box;
+    box-shadow: 0 0 21px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.cont {
+    margin: 50px;
+    margin-bottom: 28px;
+}
+
+.cont h3 {
+    font-family: 'Lato';
+    font-size: 50px;
+    margin: 0 0 10px 0;
+    color: #ccc;
+}
+
+.audio {
+    background: #000;
+    font-family: Helvetica, Arial;
+    text-align: left;
+    vertical-align: top;
+    text-indent: 0;
+    width: 100% !important;
+    height: 50px !important;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+    background: transparent;
+    width: 100px;
+}

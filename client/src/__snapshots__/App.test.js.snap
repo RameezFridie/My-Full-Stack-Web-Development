@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Passed 1`] = `
+<div>
+  <div
+    className="wrap"
+  >
+    <h1
+      className="Title"
+    >
+      iTunes
+    </h1>
+    <div
+      className="search"
+    >
+      <input
+        className="searchTerm"
+        onChange={[Function]}
+        type="text"
+      />
+      <button
+        className="searchButton"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-search"
+        >
+          🔎
+        </i>
+      </button>
+    </div>
+  </div>
+  <fieldset />
+</div>
+`;

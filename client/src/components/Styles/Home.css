@@ -1,0 +1,17 @@
+/* Home Page Styling */
+
+.header-image {
+    width: 100%;
+    height: 300px;
+}
+
+.home-h1 {
+    color: rgb(83, 42, 122);
+}
+
+
+/* Music Search Bar Page Styling */
+
+* {
+    outline: none;
+}
