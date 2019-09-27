@@ -1,46 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
-class App extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-      rand: 0
-    };
-    
-    this.getRandom = this.getRandom.bind(this)
-  }
-getRandom() {
-    let host = window.location.hostname;
-    let protocol = window.location.protocol
-    let url = null
-if(host === "localhost"){
-      url = protocol + "//" + host + ":3001"
-    }else{
-      url = protocol + "//" + host
-    }
-fetch(`${url}/rand`, {
-      method: 'GET'
-    }).then(response => response.json())
-    .then(json => {
-      this.setState({rand: json.value})
-    });
-  }
-render() {
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom"
+
+
+import Home from './components/Home'
+import Music from './components/Music'
+import Books from './components/Books'
+import Favorite from './components/Favorite'
+
+class App extends React.Component {
+  cons
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={this.getRandom}>
-          {this.state.rand}
-        </button>
-      </div>
+      <Router >
+        <Home/>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to={'/'}>Home</Link>
+              </li>
+              <li>
+                <Link to={'/Music'}>Search Music</Link>
+              </li>
+              <li>
+                <Link to={'/Books'}>Search Books</Link>
+              </li>
+              <li>
+                <Link to={'/Favorite'}>Favorites</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+          <Route path='/Home' component={Home}/>
+            <Route path='/Music' component={Music}/>
+            <Route path='/Books' component={Books}/>
+            <Route path='/Favorite' component={Favorite}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
+
 export default App;
